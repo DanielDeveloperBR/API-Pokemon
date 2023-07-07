@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-color: rgb(77, 115, 172);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex-direction: column;
+}
+
+
+:root{
+    --cor1 = 
+}
+/*###############
+Cabeçalho
+###############*/
+header h1 {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+main section h3 {
+    margin: 0;
+    text-align: center;
+}
+img{
+    width: 100%;
+}
+section {
+    background-color: rgba(128, 128, 128, 0.507);
+    padding: 15px;
+    box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.301);
+    border-radius: 15px;
+    height: 350px;
+}
+
+section form {
+    margin: 20px 0px;
+    background-color: rgb(59, 104, 104);
+    border-radius: 15px;
+    padding: 15px;
+}
+p{
+    font-weight: bolder;
+    margin-bottom: 8px;
+}
+
+input {
+    border-radius: 15px;
+    border: none;
+    padding: 5px
+}
+/*###############
+Botao de enviar
+###############*/
+input[type="submit"] {
+    background-color: orange;
+    padding: 10px;
+    color: white;
+    font-weight: bolder;
+}
+input[type="submit"]:hover{
+    background-color: rgb(77, 115, 172);
+    cursor: pointer;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 255, 255, 0.541);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-style: italic;
+    color: black;
+}
+
+@media screen and (max-width: 350px) {
+    section {
+        background-color: rgba(128, 128, 128, 0.507);
+        padding: 15px;
+        box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.301);
+        border-radius: 15px;
+        height: 350px;
+        width: 100%;
+    }
+    section form {
+        background-color: rgb(59, 104, 104);
+        border-radius: 15px;
+        margin: 0;
+    }
+}
