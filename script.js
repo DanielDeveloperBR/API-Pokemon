@@ -2,8 +2,12 @@ const form = document.querySelector("form")
 // Criando um paragrafo
 const resultado = document.createElement("div")
 const principal = document.querySelector("section")
-principal.appendChild(resultado)
 //Colocando os novos elementos como filho do formulario
+principal.appendChild(resultado)
+const texto = document.getElementById("poke")
+texto.addEventListener("input", ()=>{
+    texto.value = texto.value.toLowerCase()
+})
 
 form.addEventListener("submit", (evento) => {
     evento.preventDefault()
