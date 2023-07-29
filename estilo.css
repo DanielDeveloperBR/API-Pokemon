@@ -7,16 +7,16 @@
 }
 
 body {
-    font-family: 'Kanit',Arial, Helvetica, sans-serif;
+    font-family: 'Kanit', Arial, Helvetica, sans-serif;
     background-color: rgb(77, 115, 172);
     height: 100vh;
     color: rgb(0, 0, 0);
 }
-
+/*paleta de cores*/
 :root {
     --tela: #EFD24A;
     --section: #4A4BF0;
-    --formulario:  #1213A3;
+    --formulario: #1213A3;
     --botaoSubmit: #FFE77A;
 }
 
@@ -30,34 +30,14 @@ main {
     background-color: var(--tela);
 }
 
-/*###############
-Cabeçalho
-###############*/
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     text-align: center;
 }
 
-label {
-    font-weight: bolder;
-}
-
-div>img {
+img {
     display: block;
-    height: 50%;
-    width: 50%;
+    max-width: 100%;
     margin: auto;
-    border: 2px solid black;
-    border-radius: 50%;
-    background-color: white;
-    padding: 5px;
-    box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.301);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-div > img:hover {
-    transform: scale(1.1); /* Aumenta em 10% */
-    box-shadow: 6px 6px 15px 0px rgba(0, 0, 0, 0.501); /* Altera a sombra */
 }
 
 section {
@@ -67,12 +47,6 @@ section {
     padding: 15px;
 }
 
-div {
-    display: none;
-    text-align: center;
-    margin-top: 10px;
-}
-
 section form {
     text-align: center;
     margin: auto;
@@ -80,6 +54,32 @@ section form {
     border-radius: 15px;
     padding: 15px;
     color: #ffffffba;
+}
+
+div {
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+div>img {
+    height: 50%;
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.301);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+div>img:hover {
+    transform: scale(1.2);
+    box-shadow: 6px 6px 15px 0px rgba(0, 0, 0, 0.758);
+}
+
+label {
+    font-weight: bolder;
 }
 
 p {

@@ -24,7 +24,7 @@ form.addEventListener("submit", (evento) => {
             resultado.style.display = "block"
             resultado.innerHTML = conteudo
         },
-        error: function(){
+        error: function () {
             resultado.innerHTML = ""
             alert("Pokémon não encontrado")
         },
