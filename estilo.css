@@ -34,11 +34,15 @@ main {
 h1, h2, h3 {
     text-align: center;
 }
-
 img {
     display: block;
     max-width: 100%;
     margin: auto;
+}
+section img {
+    height: 150px;
+    min-width: 200px;
+    max-width: 100%;
 }
 
 section {
