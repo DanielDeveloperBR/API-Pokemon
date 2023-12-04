@@ -56,6 +56,7 @@ function redenrizar(poke) {
     numero.textContent = poke.id
     pokemonImagem.src = poke.sprites.versions['generation-v']['black-white'].animated['front_default']
     nomePoke.textContent = poke.name
+    numeroAtual = poke.id
 }
 
 function pokeapi(pokemon) {
