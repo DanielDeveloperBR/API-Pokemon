@@ -6,27 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de Pokémons</title>
-    <link rel="stylesheet" href="estilo.css">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
     <main>
-        <section>
-            <h1>Buscador de Pokemon</h1>
-            <img alt="PokéAPI" src="img/pokeapi.png">
-            <form action="">
-                <label for="poke">Nome
-                    <input title="Escreva aqui" type="text" name="poke" id="poke" placeholder="Digite o nome ou um número de 1 até 1010">
-                </label>
-                <input type="submit" value="Buscar">
-            </form>
-        </section>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/35.gif" alt="pokemon" class="pokemonImagem">
+
+        <img src="img/pokedex.png" alt="pokedex" class="pokedex">
+
+        <h1 class="pokemonData">
+            <span class="numero" title="Número do Pokémon"></span> -
+            <span class="nomePoke" title="Nome do Pokémon"></span>
+        </h1>
+        <form>
+            <input type="search" name="nome"   placeholder="Digite o nome do pokémon ou número" title="Digite o nome ou o número do pokémon">
+        </form>
+        <div class="botoes">
+            <button class="esquerda"><span class="material-symbols-outlined" title="Voltar">arrow_circle_left</span></button>
+            <button class="direita"><span class="material-symbols-outlined" title="Próximo">arrow_circle_right</span></button>
+        </div>
+        
     </main>
-    <footer>&copy; Desenvolvido por <a href="https://github.com/DanielDeveloperBR" target="_blank" title="Meu github">Daniel</a></footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <script src="script.js"></script>
-    
 </body>
 
 </html>

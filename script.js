@@ -1,37 +1,85 @@
-const form = document.querySelector("form")
-// Criando um paragrafo
-const resultado = document.createElement("div")
-const principal = document.querySelector("section")
-//Colocando os novos elementos como filho do formulario
-principal.appendChild(resultado)
-const texto = document.getElementById("poke")
-texto.addEventListener("input", ()=>{
-    texto.value = texto.value.toLowerCase()
-})
+const form = document.querySelector('form')
+const botoes = document.querySelectorAll('button')
+let pokemonAtual
+let controller = new AbortController();
+let numeroAtual = 1
+botoes.forEach(botao => {
+    botao.addEventListener('click', ()=>{
+        if (botao.className === 'esquerda'){
+            numeroAtual--
+        }else if(botao.className === 'direita'){
+            numeroAtual++
+        }
+        numeroAtual = Math.max(1, Math.min(numeroAtual, 649));
+        if (numeroAtual === 1){
+            numeroAtual = 649
+        }else if (numeroAtual === 649){
+            numeroAtual = 1
+        }
+        pokeapi(numeroAtual);
 
-form.addEventListener("submit", (evento) => {
-    evento.preventDefault()
-    const poke = form.poke.value.trim()
-    if (poke === "" || poke <= 0) {
-        alert("Preencha um nome de um Pokemon ou um número de 1 até 1010")
+    })
+});
+form.addEventListener('input', (e) => {
+    const nomeInput = form.nome;
+    nomeInput.value = nomeInput.value.toLowerCase();
+        // Remover caracteres não permitidos (símbolos)
+        nomeInput.value = nomeInput.value.replace(/[^a-zA-Z0-9]/g, '');
+
+        // Remover zeros à esquerda
+        if (/^\d+/.test(nomeInput.value)) {
+            nomeInput.value = parseInt(nomeInput.value, 10).toString()
+        }      
+})
+form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const nome = form.nome.value.trim()
+    if (nome === '' || nome <= 0 || nome > 649){
+        alert('Coloque um nome válido ou um numéro de 1 até 649')
         return
     }
-    //Usando a api do pokeapi com o framework do ajax
-    $.ajax({
-        url: `https://pokeapi.co/api/v2/pokemon/${poke}`, success: function (result) {
-            // mostrando a mensagem dinamicamente
-            const conteudo = `
-            <p class="Personalizar"><strong>Nome:</strong> ${result.name}</p>
-            <p class="Personalizar"><strong>Peso:</strong> ${result.weight}\&nbsp;kg</p>
-            <p class="Personalizar"><strong>Altura:</strong> ${result.height}&nbsp;m</p>
-            <img src="${result.sprites.front_default}" alt="${result.name}" title="${result.name}" />`
-            resultado.style.display = "block"
-            resultado.innerHTML = conteudo
-        },
-        error: function () {
-            resultado.innerHTML = ""
-            alert("Pokémon não encontrado")
-            return
-        },
-    })
+    try {
+        pokeapi(nome)
+        form.reset()
+    } finally {
+        setTimeout(() => {
+        }, 1000);
+    }
+})
+
+
+function redenrizar(poke) {
+
+    let pokemonImagem = document.querySelector('.pokemonImagem')
+    let nomePoke = document.querySelector('.nomePoke')
+    let numero = document.querySelector('.numero')
+    numero.textContent = poke.id
+    pokemonImagem.src = poke.sprites.versions['generation-v']['black-white'].animated['front_default']
+    nomePoke.textContent = poke.name
+}
+
+function pokeapi(pokemon) {
+    fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            pokemonAtual = data.name
+            redenrizar(data)
+        })
+        .catch(error => {
+            if (error.message === '404') {
+                alert("Não encontrado o pokémon " + pokemon)
+                alert('Coloque um nome válido ou um numéro de 1 até 649')
+                document.querySelector('input').value = ''
+            }
+        })
+}
+pokeapi(1)
+
+document.querySelector('.pokemonImagem').addEventListener('mouseenter', () => {
+    document.querySelector('.pokemonImagem').title = "Pokémon " + pokemonAtual
 })

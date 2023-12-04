@@ -6,12 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Kanit', Arial, Helvetica, sans-serif;
-    background-color: var(--tela);
-    height: 100vh;
-    color: rgb(0, 0, 0);
-}
 /*paleta de cores*/
 :root {
     --tela: #EFD24A;
@@ -20,113 +14,108 @@ body {
     --botaoSubmit: #FFE77A;
 }
 
-/*menu*/
-main {
+body {
+    font-family: 'Kanit', Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom, var(--section), var(--tela));
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    overflow-y: auto;
-    background-color: var(--tela);
-}
-
-h1, h2, h3 {
     text-align: center;
 }
-img {
-    display: block;
-    max-width: 100%;
-    margin: auto;
-}
-section img {
-    height: 150px;
-    width: 200px;
-}
 
-section {
-    border-radius: 15px;
-    background-color: var(--section);
-    box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.301);
+
+main {
+    display: inline-block;
     padding: 15px;
+    margin-top: 2%;
+    position: relative;
 }
 
-section form {
-    text-align: center;
-    margin: auto;
-    background-color: var(--formulario);
-    border-radius: 15px;
-    padding: 15px;
-    color: #ffffffba;
-}
-
-div {
-    display: none;
-    text-align: center;
-    margin-top: 10px;
-}
-
-div>img {
-    height: 50%;
-    width: 50%;
-    border: 2px solid black;
-    border-radius: 50%;
-    background-color: white;
-    padding: 5px;
-    box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.301);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-div>img:hover {
-    transform: scale(1.2);
-    box-shadow: 6px 6px 15px 0px rgba(0, 0, 0, 0.758);
-}
-
-label {
-    font-weight: bolder;
-}
-
-p {
-    margin-bottom: 8px;
-}
-
-input {
-    border-radius: 15px;
-    border: none;
-    padding: 5px;
+.pokedex {
+    max-width: 350px;
     width: 100%;
 }
 
-/*###############
-Botao de enviar
-###############*/
-input[type="submit"] {
-    background-color: var(--botaoSubmit);
-    padding: 10px;
-    color: rgb(0, 0, 0);
-    font-weight: bolder;
-    margin-top: 10px;
+.pokemonImagem {
+    position: absolute;
+    bottom: 55%;
+    left: 50%;
+    transform: translate(-63%, 20%);
+    height: 18%;
 }
 
-input[type="submit"]:hover {
-    background-color: var(--section);
-    cursor: pointer;
+.pokemonData {
+    position: absolute;
+    font: 600;
+    color: #333a;
+    top: 54.5%;
+    right: 27%;
+    font-size: clamp(8px, 5vw, 1rem);
 }
 
-footer{
-    padding: 5px;
-    background-color: var(--formulario);
-    margin-top: 20px;
-    color: white;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
+.nome {
+    color: #3a444d;
+    text-transform: capitalize;
 }
-footer a {
-    color: white;
-    text-decoration: none;
+
+form {
+    position: absolute;
+    width: 65%;
+    top: 65%;
+    left: 13.5%;
 }
-footer a:hover{
-    text-decoration: underline;
-    color: var(--section);
+
+input {
+    width: 100%;
+    padding: 5%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    color: #333e;
+    font-size: clamp(8px, 5vw, 1rem);
+    box-shadow: -3px 4px 0 #6d6767, -5px 7px 0 #5c5959;
+}
+
+.botoes {
+    position: absolute;
+    bottom: 15%;
+    left: 52%;
+    width: 65%;
+    transform: translate(-57%, 0);
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    width: 50%;
+    padding: 1%;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: clamp(8px, 5vw, 1rem);
+    background-color: gray;
+    box-shadow: -2px 2px 0 #444d, -4px 6px 0 #333a;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: clamp(30px, 5vw, 2rem);
+    color: #121a2a;
+}
+
+button:active {
+    box-shadow: inset -4px 4px 0 #222;
+    font-size: 0.9rem;
+
+    .material-symbols-outlined {
+        font-size: clamp(28px, 5vw, 1rem);
+    }
+}
+
+@media (max-width: 300px) {
+    .botoes {
+        bottom: 13%;
+    }
+
+    form {
+        left: 14.5%;
+    }
 }
